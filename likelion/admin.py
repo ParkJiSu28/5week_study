@@ -5,3 +5,4 @@ from .models import Post
 
 class PostAdmin(admin.ModelAdmin):
     list_display =('title','is_public','updated_at')
+    search_fields =('title','content',)
