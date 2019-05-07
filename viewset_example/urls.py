@@ -19,4 +19,5 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('likelion/',include('likelion.urls')),
+    path('filter/',include('filter.urls')),
 ]

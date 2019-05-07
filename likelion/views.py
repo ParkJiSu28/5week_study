@@ -5,6 +5,7 @@ from rest_framework.decorators import list_route,detail_route
 from rest_framework.response import Response
 # Create your views here.
 from rest_framework.filters import SearchFilter
+    
 class PostViewSet(ModelViewSet):
     queryset =Post.objects.all()
     serializer_class = PostSerializer
@@ -17,7 +18,7 @@ class PostViewSet(ModelViewSet):
         serializers =self.get_serializer(qs,many=True)
         return Response(serializers.data)
 
-   # def get_queryset(self):
+    def get_queryset(self):
         qs=super().get_queryset()
         if self.request.user.is_authenticated:
             qs = qs.filter(author =self.request.user)
